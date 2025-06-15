@@ -1,38 +1,30 @@
 <?php
-$subject = 'Cita Web'; // Subject of your email
-$to = 'mutuavisio@gmail.com';  //Recipient's E-mail
+$subject = 'Cita Web';
+$to = 'mutuavisio@gmail.com';
 
-$emailTo = $_POST['email'];
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$msg = $_POST['message'];
-$service = $_POST['service'];
-$date = $_POST['date'];
-$time = $_POST['time'];
+$name = $_POST['name'] ?? '';
+$email = $_POST['email'] ?? '';
+$phone = $_POST['phone'] ?? '';
+$msg = $_POST['message'] ?? '';
+$service = $_POST['service'] ?? '';
+$date = $_POST['date'] ?? '';
+$time = $_POST['time'] ?? '';
 
-$email_from = $name. ' ' . '<'.$email.'>';
+$headers = "MIME-Version: 1.0\r\n";
+$headers .= "Content-type: text/plain; charset=utf-8\r\n";
+$headers .= "From: $name <$email>\r\n";
+$headers .= "Reply-To: $email\r\n";
 
-$headers = "MIME-Version: 1.1";
-$headers .= "Content-type: text/html; charset=iso-8859-1";
-$headers .= "From: ".$name.'<'.$email.'>'."\r\n"; // Sender's E-mail
-$headers .= "Return-Path:"."From:" . $email;
+$message = "Nombre: $name\n";
+$message .= "Email: $email\n";
+$message .= "Teléfono: $phone\n";
+$message .= "Servicio: $service\n";
+$message .= "Fecha y hora: $date $time\n";
+$message .= "Mensaje: $msg\n";
 
-$message .= 'Name : ' . $name . "\n";
-$message .= 'Email : ' . $email . "\n";
-$message .= 'Phone : ' . $phone . "\n";
-$message .= 'Service : ' . $service . "\n";
-$message .= 'Date & Time : ' . $date . " " . $time . "\n";
-$message .= 'Message : ' . $msg;
-
-if (@mail($to, $subject, $message, $email_from))
-{
-	// Transfer the value 'sent' to ajax function for showing success message.
-	echo 'sent';
-}
-else
-{
-	// Transfer the value 'failed' to ajax function for showing error message.
-	echo 'failed';
+if (mail($to, $subject, $message, $headers)) {
+    echo 'sent';
+} else {
+    echo 'failed';
 }
 ?>
