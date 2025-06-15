@@ -1,6 +1,6 @@
 <?php
-$subject = 'Contacto Web';
-$to = 'mutuavisio@gmail.com';
+$subject = 'Contacto Web Mutuavisio';
+$to = 'info@hipeagency.es';
 
 $name = $_POST['name'] ?? '';
 $email = $_POST['email'] ?? '';
