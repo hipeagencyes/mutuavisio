@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cita | Mutuavisió</title>
+    <link rel="icon" href="images/icon.webp" type="image/gif" sizes="16x16">
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
+    <meta content="Reserva | Mutuavisió" name="description" >
+   <meta content="óptica, Barcelona, Mutuavisió, salud visual, gafas, lentillas, revisión visual, óptica familiar" name="keywords">
+<meta content="Mutuavisió, tu óptica de confianza en Barcelona" name="author">>
+    <!-- CSS Files
+    ================================================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="css/plugins.css" rel="stylesheet" type="text/css" >
+    <link href="css/swiper.css" rel="stylesheet" type="text/css" >
+    <link href="css/style.css" rel="stylesheet" type="text/css" >
+    <!-- color scheme -->
+    <link id="colors" href="css/colors/scheme-01.css" rel="stylesheet" type="text/css" >
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <a href="#" id="back-to-top"></a>
+
+        <!-- preloader begin -->
+        <div id="de-loader"></div>
+        <!-- preloader end -->
+
+        <!-- header begin -->
+        <header class="transparent header-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="de-flex sm-pt10">
+                            <div class="de-flex-col">
+                                <!-- logo begin -->
+                                <div id="logo">
+                                    <a href="index.html">
+                                        <img class="logo-main" src="images/logo-black.webp" alt="" >
+                                        <img class="logo-scroll" src="images/logo-black.webp" alt="" >
+                                        <img class="logo-mobile" src="images/logo-black.webp" alt="" >
+                                    </a>
+                                </div>
+                                <!-- logo end -->
+                            </div>
+                            <div class="de-flex-col header-col-mid">
+                                <!-- mainemenu begin -->
+                                <ul id="mainmenu">
+                                    <li><a class="menu-item" href="index.html">Inicio</a>
+                                    </li>
+                                </ul>
+                                <!-- mainmenu end -->
+                            </div>
+                            <div class="de-flex-col">
+                                <div class="menu_side_area">
+                                    <a href="booking.html" class="btn-main fx-slide"><span>Reservar cita</span></a>
+                                    <span id="menu-btn"></span>
+                                </div>
+
+                                <div id="btn-extra">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header end -->
+        <!-- content begin -->
+        <div class="no-bottom no-top" id="content">
+
+            <div id="top"></div>
+
+            <section id="subheader" class="bg-color-op-1 text-center">
+                <div class="container relative z-2">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <h1 class="wow fadeInUp">Ven a vernos</h1>
+                            <div class="border-bottom my-3"></div>
+                            <ul class="crumb wow fadeInDown">
+                                <li><a href="index.html">Inicio</a></li>
+                                <li class="active">Cita</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+  <div class="container relative z-2">
+    <div class="row g-4 gx-5 justify-content-between">
+
+      <div class="col-lg-6">
+        <div class="relative">
+          <div id="success_message_col" class='success p-40 h-100'>
+            <h3>Gracias por tu solicitud</h3>
+            <p>Hemos recibido tu mensaje y te responderemos lo antes posible. Si quieres hacer otra reserva, haz clic en el botón de abajo.</p>
+            <a class="btn-main" href="booking.html">Hacer otra reserva</a>
+          </div>
+
+          <form name="bookingForm" id="booking_form" method="post" action="booking.php">
+            <div class="row g-4">
+              <div class="col-lg-12">
+                <h3 class="mb-3"><i class="fa fa-envelope-o id-color me-2"></i> Pedir cita</h3>
+                <p>Pide cita fácilmente para una revisión visual, lentes o asesoramiento. En Mutuavisió te atenderemos con cercanía, profesionalidad y honestidad.</p>
+                <div class="relative">
+                  <select name="service" id="service" class="form-control">
+                    <option disabled selected value>Selecciona un servicio</option>
+                    <option value="Revisión visual">Revisión/Graduación</option>
+                    <option value="Lentes de contacto">Lentes de contacto</option>
+                    <option value="Asesoramiento de gafas">Gafas - monturas y/o cristales</option>
+                    <option value="Otros">Otros</option>
+                  </select>
+                  <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div id="date" class="relative input-group date" data-date-format="mm-dd-yyyy">
+                  <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-calendar"></i>
+                  <input class="form-control" value="Selecciona una fecha" name="date" type="text">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="relative">
+                  <select name="time" id="time" class="form-control">
+                    <option disabled selected value>Selecciona una hora</option>
+                    <!-- Mañana -->
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <!-- Tarde -->
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                  </select>
+                  <i class="absolute top-0 end-0 id-color pt-3 pe-3 icofont-simple-down"></i>
+                </div>
+              </div>
+
+              <div class="col-lg-4">
+                <input type="text" name="name" id="name" placeholder="Nombre" class="form-control" required>
+              </div>
+
+              <div class="col-lg-4">
+                <input type="text" name="email" id="email" placeholder="Correo electrónico" class="form-control" required>
+              </div>
+
+              <div class="col-lg-4">
+                <input type="text" name="phone" id="phone" placeholder="Teléfono" class="form-control" required>
+              </div>
+
+              <div class="col-lg-12">
+                <textarea name="message" id="message" class="form-control" placeholder="Mensaje (opcional)"></textarea>
+              </div>
+
+              <div class="col-lg-12">
+                <div id='submit'>
+                  <input type='submit' id='send_message' value='Pedir cita' class="btn-main">
+                </div>
+              </div>
+            </div>
+
+            <div id="error_message" class='error'>
+              Lo sentimos, ha ocurrido un error al enviar el formulario.
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="h-100 rounded-1 relative" data-bgimage="url(images/misc/s4.webp) center">
+          <div class="bg-blur text-light shadow-1 abs start-10 bottom-10 p-4 rounded-1 overflow-hidden z-2" data-wow-delay=".5s">
+            <div class="d-flex justify-content-center">
+              <i class="fs-60 text-white icon_clock"></i>
+              <div class="ms-3">
+                <h4 class="mb-0">Horario de atención</h4>
+                Lunes a sábado: 10:00 – 13:30 y 16:30 – 19:30
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+        </div>
+        <!-- content end -->
+
+      <!-- footer begin -->
+<footer class="section-dark">
+    <div class="container">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-sm-12 mb-4 mb-lg-0">
+                <img src="images/logo-white.webp" class="logo-footer" alt="Mutuavisió">
+                <div class="spacer-20"></div>
+                <p>En Mutuavisió ofrecemos un trato cercano, profesional y honesto desde hace años. Somos tu óptica de confianza en Barcelona, con productos de calidad a precios accesibles y atención totalmente personalizada.</p>
+
+                <div class="social-icons mb-sm-30">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="widget">
+                    <h5>Contacto</h5>
+                    <div class="fw-bold text-white"><i class="icofont-location-pin me-2 id-color"></i>Dirección</div>
+                    C/ Indústria, 273 - Local, 08041 Barcelona
+
+                    <div class="spacer-20"></div>
+
+                    <div class="fw-bold text-white"><i class="icofont-phone me-2 id-color"></i>Teléfono</div>
+                        933 48 10 09
+
+                    <div class="spacer-20"></div>
+
+                    <div class="fw-bold text-white"><i class="icofont-envelope me-2 id-color"></i>Email</div>
+                        mutuavisio@gmail.com     
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="subfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="de-flex">
+                        <div class="de-flex-col">
+                            © 2025 - Mutuavisió SL. Todos los derechos reservados.
+                        </div>
+                        <ul class="menu-simple">
+                            <li><a href="aviso-legal.html">Aviso legal</a></li>
+                            <li><a href="politica-privacidad.html">Política de privacidad</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer end -->
+    </div>
+
+
+    <!-- overlay content begin -->
+<div id="extra-wrap" class="text-light">
+    <div id="btn-close">
+        <span></span>
+        <span></span>
+    </div>
+
+    <div id="extra-content">
+        <img src="images/logo-white.webp" class="w-150px" alt="Mutuavisió">
+
+        <div class="spacer-30-line"></div>
+
+        <h5>Servicios</h5>
+        <ul class="ul-check">
+            <li>Revisión visual completa</li>
+            <li>Gafas graduadas</li>
+            <li>Lentillas y adaptación</li>
+            <li>Gafas de sol</li>
+            <li>Monturas y lentes para todas las edades</li>
+            <li>Asesoramiento personalizado</li>
+        </ul>
+
+        <div class="spacer-30-line"></div>
+
+        <h5>Contacto</h5>
+        <div><i class="icofont-clock-time me-2 op-5"></i>Lunes a Viernes 10:00 - 13:30 / 16:30 - 19:30</div>
+        <div><i class="icofont-location-pin me-2 op-5"></i>C/ Indústria, 273 - Local, 08041 Barcelona</div>
+        <div><i class="icofont-envelope me-2 op-5"></i>mutuavisio@gmail.com</div>
+        <div><i class="icofont-phone me-2 op-5"></i>933 48 10 09</div>
+
+        <div class="spacer-30-line"></div>
+
+        <h5>Sobre Nosotros</h5>
+        <p>En Mutuavisió ofrecemos atención visual personalizada para toda la familia. Somos una óptica familiar de Barcelona que destaca por su honestidad, profesionalidad y precios muy competitivos.</p>
+
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+
+    <!-- Javascript Files
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/designesia.js"></script>
+    <script src="js/validation-booking.js"></script>
+
+    <!-- datepicker begin -->
+    <script>
+        $(function () {
+          $("#date").datepicker({ 
+                autoclose: true, 
+                todayHighlight: true
+          }).datepicker('update', new Date());
+        });
+
+    </script>
+    <!-- datepicker close -->
+
+</body>
+
+</html>
