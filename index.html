@@ -461,7 +461,8 @@
                 <div class="row g-4 gx-5">
                     <div class="col-lg-6">
                         <div class="fw-bold text-dark"><i class="icofont-clock-time me-2 id-color-2"></i>Horario</div>
-                        Lunes a Viernes: 10:00 - 13:30 / 16:3 - 19:30
+                        Lunes a Viernes: 10:00 - 13:30 / 16:30 - 19:30
+                        <div class="mv-vac-nota"><i class="icofont-beach me-2"></i><strong>Cerrado por vacaciones del 8 al 23 de agosto.</strong> Volvemos el lunes 24 de agosto.</div>
                     </div>
 
                     <div class="col-lg-6">
@@ -590,6 +591,107 @@
         </div>
     </div>
 </div>
+
+  <!-- aviso vacaciones begin -->
+<style>
+#mv-vac-overlay{position:fixed;inset:0;z-index:20000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(15,20,28,.65);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:0;transition:opacity .35s ease}
+#mv-vac-overlay.mv-show{display:flex;opacity:1}
+#mv-vac-modal{position:relative;width:100%;max-width:460px;background:#fff;border-radius:14px;padding:44px 36px 36px;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.28);transform:translateY(18px);transition:transform .35s ease}
+#mv-vac-overlay.mv-show #mv-vac-modal{transform:translateY(0)}
+#mv-vac-modal .mv-vac-close{position:absolute;top:12px;right:16px;width:34px;height:34px;line-height:32px;border:0;background:none;font-size:28px;color:#9aa4b2;cursor:pointer;padding:0}
+#mv-vac-modal .mv-vac-close:hover{color:#23aceb}
+#mv-vac-modal .mv-vac-icon{font-size:44px;color:#23aceb;line-height:1;margin-bottom:14px}
+#mv-vac-modal h4{margin:0 0 6px;font-size:24px;color:#1a1a1a}
+#mv-vac-modal .mv-vac-dates{display:inline-block;margin:0 0 14px;padding:7px 18px;border-radius:40px;background:rgba(35,172,235,.12);color:#23aceb;font-weight:700;letter-spacing:.02em}
+#mv-vac-modal p{margin:0 0 22px;color:#5c6673;font-size:15px;line-height:1.6}
+#mv-vac-modal .mv-vac-btn{display:inline-block;background:#23aceb;color:#fff;padding:13px 30px;border-radius:6px;font-weight:600;text-decoration:none;transition:background .25s}
+#mv-vac-modal .mv-vac-btn:hover{background:#EAA638;color:#fff}
+#mv-vac-bar{position:fixed;left:0;right:0;bottom:0;z-index:19000;display:none;background:#23aceb;color:#fff;padding:13px 54px 13px 22px;font-size:15px;text-align:center;box-shadow:0 -4px 20px rgba(0,0,0,.15);transform:translateY(100%);transition:transform .4s ease}
+#mv-vac-bar.mv-show{display:block}
+#mv-vac-bar.mv-in{transform:translateY(0)}
+#mv-vac-bar strong{font-weight:700}
+#mv-vac-bar .mv-vac-bar-close{position:absolute;top:50%;right:14px;transform:translateY(-50%);width:32px;height:32px;border:0;background:none;color:#fff;font-size:24px;line-height:1;cursor:pointer;opacity:.8;padding:0}
+#mv-vac-bar .mv-vac-bar-close:hover{opacity:1}
+body.mv-vac-bar-on #back-to-top.show{bottom:78px}
+.mv-vac-nota{display:none;margin-top:10px;padding:10px 14px;border-left:3px solid #EAA638;background:rgba(234,166,56,.1);border-radius:4px;font-size:14px;line-height:1.5}
+.mv-vac-nota.mv-show{display:block}
+@media(max-width:575px){
+  #mv-vac-modal{padding:38px 24px 30px}
+  #mv-vac-modal h4{font-size:20px}
+  #mv-vac-bar{font-size:13.5px;padding:12px 46px 12px 16px;text-align:left}
+}
+</style>
+
+<div id="mv-vac-overlay" role="dialog" aria-modal="true" aria-labelledby="mv-vac-title">
+    <div id="mv-vac-modal">
+        <button type="button" class="mv-vac-close" aria-label="Cerrar">&times;</button>
+        <div class="mv-vac-icon"><i class="icofont-beach"></i></div>
+        <h4 id="mv-vac-title">Cerrado por vacaciones</h4>
+        <div class="mv-vac-dates">Del 8 al 23 de agosto</div>
+        <p>Nos tomamos unos días de descanso. Volvemos a atenderte el <strong>lunes 24 de agosto</strong> en nuestro horario habitual.<br>¡Gracias por tu confianza y felices vacaciones!</p>
+        <a class="mv-vac-btn" href="https://wa.me/34679874077" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+</div>
+
+<div id="mv-vac-bar">
+    <span><strong>Cerrado por vacaciones del 8 al 23 de agosto.</strong> Volvemos el lunes 24 de agosto.</span>
+    <button type="button" class="mv-vac-bar-close" aria-label="Cerrar aviso">&times;</button>
+</div>
+
+<script>
+(function () {
+    // El aviso se muestra hasta el final del 23 de agosto de 2026 y luego desaparece solo.
+    var fin = new Date(2026, 7, 24, 0, 0, 0); // 24 ago 2026, 00:00
+    if (new Date() >= fin) return;
+
+    var overlay = document.getElementById('mv-vac-overlay');
+    var modal   = document.getElementById('mv-vac-modal');
+    var bar     = document.getElementById('mv-vac-bar');
+
+    // Nota inline en la sección de Horario / Contacto
+    Array.prototype.forEach.call(
+        document.querySelectorAll('.mv-vac-nota'),
+        function (n) { n.classList.add('mv-show'); }
+    );
+
+    function mostrarBarra() {
+        if (sessionStorage.getItem('mvVacBarra') === 'cerrada') return;
+        bar.classList.add('mv-show');
+        document.body.classList.add('mv-vac-bar-on');
+        setTimeout(function () { bar.classList.add('mv-in'); }, 50);
+    }
+
+    function cerrarPopup() {
+        overlay.classList.remove('mv-show');
+        setTimeout(function () { overlay.style.display = 'none'; }, 350);
+        try { sessionStorage.setItem('mvVacPopup', 'visto'); } catch (e) {}
+        mostrarBarra();
+    }
+
+    var yaVisto = false;
+    try { yaVisto = sessionStorage.getItem('mvVacPopup') === 'visto'; } catch (e) {}
+
+    if (yaVisto) {
+        mostrarBarra();
+    } else {
+        setTimeout(function () { overlay.classList.add('mv-show'); }, 900);
+    }
+
+    modal.querySelector('.mv-vac-close').addEventListener('click', cerrarPopup);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) cerrarPopup(); });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && overlay.classList.contains('mv-show')) cerrarPopup();
+    });
+
+    bar.querySelector('.mv-vac-bar-close').addEventListener('click', function () {
+        bar.classList.remove('mv-in');
+        document.body.classList.remove('mv-vac-bar-on');
+        setTimeout(function () { bar.classList.remove('mv-show'); }, 400);
+        try { sessionStorage.setItem('mvVacBarra', 'cerrada'); } catch (e) {}
+    });
+})();
+</script>
+<!-- aviso vacaciones end -->
 
   <!-- Javascript Files
 ================================================== -->
